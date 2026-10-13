@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="kn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#16a34a" />
+    <title>Kamagere Mart — Fresh essentials delivered</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="splash" class="splash" role="status" aria-label="Loading">
+      <img src="images/shara-technovate-logo.png" alt="ShaRa Technovate" class="splash-logo" />
+    </div>
+    <div id="app"></div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  <script>
+      // Hide the ShaRa Technovate loading screen once the page is ready (shown at least 1.6s)
+      (function () {
+        var start = Date.now();
+        function hide() {
+          var el = document.getElementById('splash');
+          if (!el) return;
+          var wait = Math.max(0, 1600 - (Date.now() - start));
+          setTimeout(function () {
+            el.classList.add('hide');
+            setTimeout(function () { el.remove(); }, 600);
+          }, wait);
+        }
+        if (document.readyState === 'complete') hide();
+        else window.addEventListener('load', hide);
+      })();
+    </script>
+  </body>
+</html>
